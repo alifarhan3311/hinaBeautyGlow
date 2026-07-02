@@ -1,19 +1,16 @@
-FROM node:22-alpine AS base
+FROM node:22
+
 WORKDIR /app
-ENV NODE_ENV=production
 
-FROM base AS deps
-COPY package.json package-lock.json* ./
-COPY server/package.json server/package.json
-COPY shared/package.json shared/package.json
-RUN npm ci --omit=dev --ignore-scripts
+COPY package*.json ./
+COPY server/package*.json ./server/
+COPY shared/package*.json ./shared/
 
-FROM base AS runtime
-RUN addgroup -S nodeapp && adduser -S nodeapp -G nodeapp
-COPY --from=deps /app/node_modules ./node_modules
-COPY server ./server
-COPY shared ./shared
-WORKDIR /app/server
-USER nodeapp
+RUN npm ci
+
+COPY server/ .
+COPY shared/ .
+
 EXPOSE 5000
+
 CMD ["node", "src/server.js"]
