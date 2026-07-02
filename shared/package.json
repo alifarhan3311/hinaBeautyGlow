@@ -1,0 +1,8 @@
+{
+  "name": "@hina/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "node --check src/index.js"
+  }
+}

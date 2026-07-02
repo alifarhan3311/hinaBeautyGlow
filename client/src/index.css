@@ -1,0 +1,470 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Tailwind Directives
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Google Fonts (backup import if HTML link fails)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Base Layer
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-plum text-cream font-sans antialiased;
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(201, 168, 76, 0.35);
+    color: #e8d5a3;
+  }
+
+  ::-moz-selection {
+    background-color: rgba(201, 168, 76, 0.35);
+    color: #e8d5a3;
+  }
+
+  /* Focus Ring */
+  :focus-visible {
+    outline: 2px solid #C9A84C;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display leading-tight;
+    letter-spacing: -0.01em;
+  }
+
+  /* Images */
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Links */
+  a {
+    @apply text-gold transition-colors duration-200;
+  }
+
+  /* HR */
+  hr {
+    @apply border-gold/20;
+  }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Custom Scrollbar
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A0A12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #C9A84C, #8B6914);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #E8D5A3, #C9A84C);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #C9A84C #1A0A12;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Component Layer
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@layer components {
+
+  /* â”€â”€ Glassmorphism â”€â”€ */
+  .glass {
+    background: rgba(253, 248, 240, 0.04);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(201, 168, 76, 0.12);
+  }
+
+  .glass-dark {
+    background: rgba(26, 10, 18, 0.75);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+  }
+
+  .glass-card {
+    background: rgba(45, 27, 37, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    @apply shadow-card rounded-2xl;
+  }
+
+  /* â”€â”€ Text Gradients â”€â”€ */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C9A84C 0%, #E8D5A3 40%, #C9A84C 70%, #8B6914 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+  }
+
+  .text-gradient-luxury {
+    background: linear-gradient(135deg, #E8D5A3 0%, #C9A84C 30%, #8B6914 60%, #C9A84C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+  }
+
+  .text-gradient-rose {
+    background: linear-gradient(135deg, #F8E8F0 0%, #8B6B7A 50%, #6B4B5A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* â”€â”€ Button Base Styles â”€â”€ */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-sans font-medium
+           tracking-wide transition-all duration-300 cursor-pointer select-none
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-gold text-plum px-7 py-3 rounded-full
+           hover:bg-gold-light hover:shadow-gold hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-none;
+  }
+
+  .btn-secondary {
+    @apply btn border border-gold/50 text-gold px-7 py-3 rounded-full
+           hover:bg-gold/10 hover:border-gold hover:shadow-gold
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply btn text-cream/80 px-5 py-2.5 rounded-lg
+           hover:text-gold hover:bg-gold/10;
+  }
+
+  .btn-icon {
+    @apply btn w-10 h-10 rounded-full p-0 text-gold/70 hover:text-gold hover:bg-gold/10;
+  }
+
+  /* â”€â”€ Card Styles â”€â”€ */
+  .luxury-card {
+    @apply glass-card overflow-hidden transition-all duration-500
+           hover:shadow-luxury hover:-translate-y-1;
+  }
+
+  .luxury-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .service-card {
+    @apply relative luxury-card cursor-pointer group;
+  }
+
+  /* â”€â”€ Section Padding â”€â”€ */
+  .section-pad {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .section-pad-sm {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* â”€â”€ Container â”€â”€ */
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* â”€â”€ Divider â”€â”€ */
+  .divider-gold {
+    @apply w-16 h-0.5 bg-gradient-gold mx-auto;
+  }
+
+  .divider-gold-left {
+    @apply w-16 h-0.5 bg-gradient-gold;
+  }
+
+  /* â”€â”€ Badge â”€â”€ */
+  .badge-gold {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full
+           bg-gold/10 border border-gold/25 text-gold text-xs font-medium
+           tracking-wider uppercase;
+  }
+
+  /* â”€â”€ Input â”€â”€ */
+  .input-luxury {
+    @apply w-full bg-plum-800/50 border border-gold/20 rounded-xl px-4 py-3
+           text-cream placeholder-cream/30 font-sans text-sm
+           focus:outline-none focus:border-gold/60 focus:bg-plum-800
+           transition-all duration-300;
+  }
+
+  /* â”€â”€ Overlay â”€â”€ */
+  .overlay-dark {
+    @apply absolute inset-0 bg-gradient-to-t from-plum via-plum/60 to-transparent;
+  }
+
+  /* â”€â”€ Nav Link â”€â”€ */
+  .nav-link {
+    @apply relative text-cream/80 hover:text-gold font-sans text-sm
+           tracking-wide transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-gold
+           transition-all duration-300;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* â”€â”€ Shimmer Skeleton â”€â”€ */
+  .skeleton {
+    @apply rounded-lg animate-pulse;
+    background: linear-gradient(90deg, rgba(45,27,37,0.8) 25%, rgba(61,43,53,0.9) 50%, rgba(45,27,37,0.8) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* â”€â”€ Image Hover Zoom â”€â”€ */
+  .img-zoom {
+    @apply overflow-hidden;
+  }
+
+  .img-zoom img {
+    @apply transition-transform duration-700 ease-in-out group-hover:scale-110;
+  }
+
+  /* â”€â”€ Section Label â”€â”€ */
+  .section-label {
+    @apply font-accent italic text-gold text-lg md:text-xl tracking-wide;
+  }
+
+  /* â”€â”€ Heading Styles â”€â”€ */
+  .heading-xl {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  .heading-lg {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+
+  .heading-md {
+    @apply font-display text-2xl md:text-3xl font-semibold;
+  }
+
+  /* â”€â”€ Backdrop â”€â”€ */
+  .modal-backdrop {
+    @apply fixed inset-0 bg-plum/80 backdrop-blur-sm z-50;
+  }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Utilities Layer
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@layer utilities {
+  /* Shimmer animation for text/borders */
+  .animate-shimmer-text {
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Gold border glow */
+  .border-glow-gold {
+    box-shadow: 0 0 0 1px rgba(201,168,76,0.4), 0 0 20px rgba(201,168,76,0.15);
+  }
+
+  /* Stagger animation delays */
+  .delay-75  { animation-delay: 75ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-700 { animation-delay: 700ms; }
+  .delay-1000{ animation-delay: 1000ms; }
+
+  /* Hide scrollbar */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Truncate multiline */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Perspective */
+  .perspective-1000 { perspective: 1000px; }
+
+  /* Transform 3D */
+  .transform-3d { transform-style: preserve-3d; }
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Custom Animations (outside Tailwind)
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(201,168,76,0.3); }
+  50%       { border-color: rgba(201,168,76,0.8); box-shadow: 0 0 20px rgba(201,168,76,0.3); }
+}
+
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes bgPan {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-border-glow {
+  animation: borderGlow 2.5s ease-in-out infinite;
+}
+
+.animate-reveal-text {
+  animation: revealText 1.2s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+.animate-bg-pan {
+  background-size: 200% 200%;
+  animation: bgPan 6s ease infinite;
+}
+
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+   Print Styles
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media print {
+  * { color: #000 !important; background: #fff !important; }
+  .no-print { display: none !important; }
+}
+
+@layer base {
+  :root {
+    --hbg-bg: #fff8fb;
+    --hbg-bg-soft: #ffffff;
+    --hbg-bg-card: rgba(255, 255, 255, 0.86);
+    --hbg-text: #251923;
+    --hbg-muted: rgba(37, 25, 35, 0.68);
+    --hbg-border: rgba(184, 138, 47, 0.22);
+  }
+
+  .dark {
+    --hbg-bg: #1A0A12;
+    --hbg-bg-soft: #2D1B25;
+    --hbg-bg-card: rgba(45, 27, 37, 0.72);
+    --hbg-text: #FDF8F0;
+    --hbg-muted: rgba(253, 248, 240, 0.72);
+    --hbg-border: rgba(201, 168, 76, 0.18);
+  }
+
+  body {
+    background: var(--hbg-bg);
+    color: var(--hbg-text);
+    transition: background-color 220ms ease, color 220ms ease;
+  }
+}
+
+@layer utilities {
+  .theme-bg { background-color: var(--hbg-bg); }
+  .theme-surface { background-color: var(--hbg-bg-soft); }
+  .theme-card { background: var(--hbg-bg-card); }
+  .theme-text { color: var(--hbg-text); }
+  .theme-muted { color: var(--hbg-muted); }
+  .theme-border { border-color: var(--hbg-border); }
+}
+
+html:not(.dark) .bg-plum,
+html:not(.dark) .bg-plum\/50 { background-color: #fff8fb !important; }
+html:not(.dark) .bg-plum-800,
+html:not(.dark) .bg-plum-800\/40,
+html:not(.dark) .bg-plum-800\/50,
+html:not(.dark) .bg-plum-800\/60 { background-color: #ffffff !important; }
+html:not(.dark) .text-cream,
+html:not(.dark) .text-cream\/80,
+html:not(.dark) .text-cream\/70,
+html:not(.dark) .text-cream\/65,
+html:not(.dark) .text-cream\/60,
+html:not(.dark) .text-cream\/50 { color: #251923 !important; }
+html:not(.dark) .border-gold\/10,
+html:not(.dark) .border-gold\/15,
+html:not(.dark) .border-gold\/20 { border-color: rgba(184, 138, 47, 0.24) !important; }
+html:not(.dark) .glass,
+html:not(.dark) .glass-dark,
+html:not(.dark) .glass-card { background: rgba(255,255,255,0.86) !important; border-color: rgba(184,138,47,0.22) !important; }
+html:not(.dark) nav.bg-plum\/90 { background-color: rgba(255,248,251,0.92) !important; }
+
+/* Light mode readability fixes for Tailwind opacity utility variants */
+html:not(.dark) .text-cream\/90,
+html:not(.dark) .text-cream\/85,
+html:not(.dark) .text-cream\/75,
+html:not(.dark) .text-cream\/55,
+html:not(.dark) .text-cream\/45,
+html:not(.dark) .text-cream\/30 { color: rgba(37, 25, 35, 0.72) !important; }
+
+html:not(.dark) .bg-plum-800\/20,
+html:not(.dark) .bg-plum\/40,
+html:not(.dark) .bg-plum-800\/80,
+html:not(.dark) .bg-plum-800\/90 { background-color: rgba(255, 255, 255, 0.78) !important; }
+
+html:not(.dark) input.text-cream,
+html:not(.dark) textarea.text-cream,
+html:not(.dark) select.text-cream { color: #251923 !important; }
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder { color: rgba(37, 25, 35, 0.45) !important; }

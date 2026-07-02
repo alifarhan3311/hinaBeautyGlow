@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 675" role="img" aria-label="Spa Ritual">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#E8D5A3"/>
+      <stop offset="1" stop-color="#F8E8F0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="38%" r="55%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="675" fill="url(#bg)"/>
+  <circle cx="710" cy="135" r="180" fill="url(#glow)"/>
+  <rect x="96" y="94" width="708" height="486" rx="46" fill="#fff" opacity="0.45" stroke="#8B6914" stroke-opacity="0.25" stroke-width="3"/>
+  <path d="M450 175c86 0 156 70 156 156s-70 156-156 156-156-70-156-156 70-156 156-156z" fill="#fff" opacity="0.55"/>
+  <path d="M385 275c20-55 110-55 130 0 17 47-12 113-65 113s-82-66-65-113z" fill="#8B6914" opacity="0.22"/>
+  <path d="M318 418c36-42 228-42 264 0 18 22 26 56 26 92H292c0-36 8-70 26-92z" fill="#8B6914" opacity="0.28"/>
+  <path d="M450 118l12 30 32 12-32 12-12 30-12-30-32-12 32-12 12-30z" fill="#8B6914" opacity="0.85"/>
+  <path d="M650 395l8 19 20 8-20 8-8 19-8-19-20-8 20-8 8-19z" fill="#8B6914" opacity="0.65"/>
+  <text x="450" y="596" text-anchor="middle" fill="#1A0A12" font-family="Georgia, serif" font-size="44" font-weight="700">Spa Ritual</text>
+</svg>

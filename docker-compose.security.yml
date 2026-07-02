@@ -1,0 +1,6 @@
+services:
+  zap:
+    image: ghcr.io/zaproxy/zaproxy:stable
+    command: zap-baseline.py -t http://host.docker.internal:5000/api/v1/health -r zap-report.html
+    volumes:
+      - ./reports:/zap/wrk
