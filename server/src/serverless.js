@@ -1,9 +1,8 @@
 ﻿import mongoose from 'mongoose';
-import { createApp } from './app.js';
+import { getApp } from './app.js';
 import { config } from './config/index.js';
 import { logger } from './utils/logger.js';
 
-let appPromise;
 let mongoPromise;
 
 const connectMongo = () => {
@@ -19,9 +18,8 @@ const connectMongo = () => {
 };
 
 export const getServerlessApp = async () => {
-  if (!appPromise) appPromise = createApp();
   connectMongo();
-  return appPromise;
+  return getApp();
 };
 
 export default async function handler(req, res) {
