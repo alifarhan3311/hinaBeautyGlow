@@ -26,7 +26,7 @@ const schema = z.object({
   BLOCK_DIRECT_IP: envBoolean.default(false),
   TRUST_PROXY: z.string().default('loopback'),
   FORCE_HTTPS: envBoolean.default(false),
-  MONGODB_URI: z.string(),
+  MONGODB_URI: z.string().optional().default(''),
   REDIS_URL: z.string().optional().default(''),
   SESSION_SECRET: z.string().min(24),
   JWT_ACCESS_SECRET: z.string().min(24),
@@ -56,7 +56,7 @@ export const config = {
   blockDirectIp: env.BLOCK_DIRECT_IP,
   trustProxy: env.TRUST_PROXY,
   forceHttps: env.FORCE_HTTPS,
-  mongo: { uri: env.MONGODB_URI },
+  mongo: { uri: env.MONGODB_URI || undefined },
   redisUrl: env.REDIS_URL || undefined,
   session: { secret: env.SESSION_SECRET },
   jwt: {
@@ -82,6 +82,7 @@ export const config = {
   fieldEncryptionKey: env.FIELD_ENCRYPTION_KEY_BASE64,
   logLevel: env.LOG_LEVEL
 };
+
 
 
 

@@ -7,19 +7,20 @@ let appPromise;
 let mongoPromise;
 
 const connectMongo = () => {
+  if (!config.mongo.uri) return Promise.resolve(null);
   if (!mongoPromise) {
-    mongoPromise = mongoose.connect(config.mongo.uri).catch((error) => {
+    mongoPromise = mongoose.connect(config.mongo.uri, { serverSelectionTimeoutMS: 2500 }).catch((error) => {
       mongoPromise = null;
       logger.error('serverless.mongo.failed', { message: error.message });
-      throw error;
+      return null;
     });
   }
   return mongoPromise;
 };
 
 export const getServerlessApp = async () => {
-  await connectMongo();
   if (!appPromise) appPromise = createApp();
+  connectMongo();
   return appPromise;
 };
 
