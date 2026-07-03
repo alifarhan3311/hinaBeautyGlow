@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "^3.614.0",
+    "@vercel/node": "^5.8.22",
     "argon2": "^0.41.1",
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",

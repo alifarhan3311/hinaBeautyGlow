@@ -43,3 +43,5 @@ start().catch((error) => {
   logger.error('server.start.failed', { message: error.message, stack: error.stack });
   process.exit(1);
 });
+
+export default start;
