@@ -43,7 +43,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-2xl mx-auto text-sm md:text-lg text-cream/80 leading-relaxed font-accent italic"
+          className="max-w-2xl mx-auto text-sm md:text-lg text-[#FDF8F0]/90 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] font-accent italic"
         >
           Experience customized aesthetic facials, collagen enhancements, and immaculate waxing treatments in a clean, sophisticated, private environment.
         </motion.p>
@@ -90,3 +90,4 @@ export const HeroSection = () => {
 };
 
 export default HeroSection;
+

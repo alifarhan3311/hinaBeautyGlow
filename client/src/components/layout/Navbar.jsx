@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CalendarDays, Menu, Moon, Sun, X } from 'lucide-react';
@@ -33,7 +33,7 @@ export const Navbar = () => {
     `relative rounded-full px-3 py-1.5 text-[12px] font-bold uppercase tracking-[0.07em] transition-all duration-300 ${
       isActive
         ? 'bg-gold/12 text-gold shadow-[inset_0_0_0_1px_rgba(201,168,76,0.24)]'
-        : 'text-cream/75 hover:bg-gold/10 hover:text-gold'
+        : 'text-plum/75 dark:text-[#FDF8F0]/80 hover:bg-gold/10 hover:text-gold'
     }`;
 
   const ThemeIcon = darkMode ? Sun : Moon;
@@ -46,7 +46,7 @@ export const Navbar = () => {
             <img
               src="/assets/brand-logo.svg"
               alt="Hina Beauty Glow"
-              className="h-14 w-auto max-w-[210px] transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-14 w-auto max-w-[250px] transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </Link>
 
@@ -129,7 +129,7 @@ export const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={({ isActive }) =>
                     `rounded-2xl px-4 py-3 text-sm font-bold uppercase tracking-[0.08em] transition ${
-                      isActive ? 'bg-gold/15 text-gold' : 'text-cream/75 hover:bg-gold/10 hover:text-gold'
+                      isActive ? 'bg-gold/15 text-gold' : 'text-plum/75 dark:text-[#FDF8F0]/80 hover:bg-gold/10 hover:text-gold'
                     }`
                   }
                 >
@@ -167,3 +167,4 @@ export const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -1,8 +1,13 @@
-import dotenv from 'dotenv';
+﻿import dotenv from 'dotenv';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import { loadManagedSecrets } from './secretManager.js';
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '../../.env'), override: !process.env.VERCEL });
 await loadManagedSecrets();
 
 const envBoolean = z.preprocess((value) => {
@@ -22,7 +27,7 @@ const schema = z.object({
   TRUST_PROXY: z.string().default('loopback'),
   FORCE_HTTPS: envBoolean.default(false),
   MONGODB_URI: z.string(),
-  REDIS_URL: z.string().optional(),
+  REDIS_URL: z.string().optional().default(''),
   SESSION_SECRET: z.string().min(24),
   JWT_ACCESS_SECRET: z.string().min(24),
   JWT_REFRESH_SECRET: z.string().min(24),
@@ -52,7 +57,7 @@ export const config = {
   trustProxy: env.TRUST_PROXY,
   forceHttps: env.FORCE_HTTPS,
   mongo: { uri: env.MONGODB_URI },
-  redisUrl: env.REDIS_URL,
+  redisUrl: env.REDIS_URL || undefined,
   session: { secret: env.SESSION_SECRET },
   jwt: {
     accessSecret: env.JWT_ACCESS_SECRET,
@@ -77,3 +82,7 @@ export const config = {
   fieldEncryptionKey: env.FIELD_ENCRYPTION_KEY_BASE64,
   logLevel: env.LOG_LEVEL
 };
+
+
+
+
