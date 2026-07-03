@@ -1,4 +1,4 @@
-import express from 'express';
+﻿import express from 'express';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import mongoSanitize from 'express-mongo-sanitize';
@@ -38,9 +38,20 @@ export const createApp = async () => {
   app.use(botDetection);
   app.use(injectionDetector);
   app.use(redisRateLimiter);
+
+  app.get(['/', '/api'], (req, res) => {
+    res.json({
+      status: 'ok',
+      service: 'Hina Beauty Glow API',
+      health: '/api/v1/health',
+      ready: '/api/v1/ready'
+    });
+  });
   app.use('/api/v1/admin', apiKeyGuard);
   app.use('/api/v1', routes);
   app.use(notFoundHandler);
   app.use(errorHandler);
   return app;
 };
+
+
