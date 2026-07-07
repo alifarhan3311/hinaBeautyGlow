@@ -34,7 +34,7 @@ jobs:
         with:
           languages: javascript
       - uses: github/codeql-action/analyze@v3
-      - uses: sonarsource/sonarqube-scan-action@v2
+      - uses: sonarsource/sonarqube-scan-action@v8
         continue-on-error: true
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
