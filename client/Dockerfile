@@ -1,15 +1,21 @@
-FROM node:22-alpine AS build
-WORKDIR /app
-ARG VITE_API_BASE_URL=/api/v1
-ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
-COPY package.json package-lock.json* ./
-COPY client/package.json client/package.json
-RUN npm ci --workspace client --include-workspace-root=false
-COPY client client
-RUN npm run build --workspace client
+FROM node:22-alpine as build-stage
 
-FROM nginx:1.27-alpine
-COPY --from=build /app/client/dist /usr/share/nginx/html
-COPY nginx/client.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /app
+
+COPY package*.json ./
+
+
+RUN npm cache clean --force
+
+RUN npm ci
+
+COPY . .
+
+ENV VITE_API_BASE_URL=https://hinabeauty-glow/api/v1
+
+RUN npm run build
+
+
+EXPOSE 5174
+
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]

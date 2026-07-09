@@ -17,16 +17,15 @@ export const Home = () => {
 
   return (
     <>
-      <HeroSection />
-      <StatsBar />
-      <FeaturedServices />
-      <WhyChooseUs />
-      <BeforeAfterSlider />
-      <TestimonialsCarousel />
-      <PackagesSection />
-      <FAQSection />
-      <NewsletterSection />
-      <MapSection />
+      <div data-section="home"><HeroSection /></div>
+      <div data-section="services"><StatsBar /><FeaturedServices /></div>
+      <div data-section="about"><WhyChooseUs /></div>
+      <div data-section="before-after"><BeforeAfterSlider /></div>
+      <div data-section="testimonials"><TestimonialsCarousel /></div>
+      <div data-section="packages"><PackagesSection /></div>
+      <div data-section="faq"><FAQSection /></div>
+      <div data-section="newsletter"><NewsletterSection /></div>
+      <div data-section="contact"><MapSection /></div>
     </>
   );
 };
