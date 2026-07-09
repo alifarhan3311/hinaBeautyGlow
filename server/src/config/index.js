@@ -1,8 +1,13 @@
-import dotenv from 'dotenv';
+﻿import dotenv from 'dotenv';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
 import { loadManagedSecrets } from './secretManager.js';
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, '../../.env'), override: !process.env.VERCEL });
 await loadManagedSecrets();
 
 const envBoolean = z.preprocess((value) => {
@@ -21,11 +26,11 @@ const schema = z.object({
   BLOCK_DIRECT_IP: envBoolean.default(false),
   TRUST_PROXY: z.string().default('loopback'),
   FORCE_HTTPS: envBoolean.default(false),
-  MONGODB_URI: z.string(),
-  REDIS_URL: z.string().optional(),
-  SESSION_SECRET: z.string().min(24),
-  JWT_ACCESS_SECRET: z.string().min(24),
-  JWT_REFRESH_SECRET: z.string().min(24),
+  MONGODB_URI: z.string().optional().default(''),
+  REDIS_URL: z.string().optional().default(''),
+  SESSION_SECRET: z.string().min(24).default('hbg_fallback_session_secret_set_real_env_in_vercel'),
+  JWT_ACCESS_SECRET: z.string().min(24).default('hbg_fallback_access_secret_set_real_env_in_vercel'),
+  JWT_REFRESH_SECRET: z.string().min(24).default('hbg_fallback_refresh_secret_set_real_env_in_vercel'),
   JWT_ACCESS_TTL: z.string().default('15m'),
   JWT_REFRESH_TTL_DAYS: z.coerce.number().default(30),
   COOKIE_DOMAIN: z.string().optional(),
@@ -51,8 +56,8 @@ export const config = {
   blockDirectIp: env.BLOCK_DIRECT_IP,
   trustProxy: env.TRUST_PROXY,
   forceHttps: env.FORCE_HTTPS,
-  mongo: { uri: env.MONGODB_URI },
-  redisUrl: env.REDIS_URL,
+  mongo: { uri: env.MONGODB_URI || undefined },
+  redisUrl: env.REDIS_URL || undefined,
   session: { secret: env.SESSION_SECRET },
   jwt: {
     accessSecret: env.JWT_ACCESS_SECRET,
@@ -77,3 +82,9 @@ export const config = {
   fieldEncryptionKey: env.FIELD_ENCRYPTION_KEY_BASE64,
   logLevel: env.LOG_LEVEL
 };
+
+
+
+
+
+
