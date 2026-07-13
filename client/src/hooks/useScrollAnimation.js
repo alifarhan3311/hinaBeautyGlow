@@ -1,16 +1,10 @@
-import { useEffect } from 'react';
-import { useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+// Backward-compatible wrapper around useScrollReveal.
+// Existing consumers use { ref, controls }; the new hook also exposes container/item variants.
+import { useScrollReveal } from './useScrollReveal';
 
 export function useScrollAnimation(threshold = 0.1) {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold, triggerOnce: true });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
+  const { ref, controls } = useScrollReveal({ threshold });
   return { ref, controls };
 }
+
+export default useScrollAnimation;
