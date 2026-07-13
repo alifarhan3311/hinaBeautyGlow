@@ -6,17 +6,17 @@ export const TestimonialsCarousel = () => {
   const reviews = [
     {
       name: 'Ayesha Khan',
-      treatment: 'Hydra Facial',
+      treatment: 'Super Signature Hydra Facial',
       text: 'My skin was dull and flaky. After one Signature Hydra Facial at Hina Beauty Glow, my face has this clean glass-like finish that lasts for weeks.',
     },
     {
       name: 'Sadia Ahmed',
-      treatment: 'Collagen Treatment',
+      treatment: 'Collagen Skin Treatment',
       text: 'Super high standard setup. The aesthetician explains every single step. Highly professional, skin looks tighter and healthier.',
     },
     {
       name: 'Sana Fatima',
-      treatment: 'Pigmentation Therapy',
+      treatment: 'Pigmentation Treatment',
       text: 'Really happy with the results of their pigmentation peel. My acne scars are visibly reduced. Totally recommend them!',
     },
   ];

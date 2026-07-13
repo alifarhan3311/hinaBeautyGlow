@@ -12,7 +12,7 @@ export const Packages = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="Offers" title="Skincare & Waxing Packages" />
         <p className="text-center text-cream/70 text-sm max-w-xl mx-auto -mt-6">
-          Combine signature aesthetic facial treatments with complete body waxing packages for the ultimate premium grooming experience.
+          Combine our selected facial, skin renewal, and face, arm, and leg waxing services for a polished beauty session.
         </p>
       </div>
       <PackagesSection />

@@ -8,20 +8,20 @@ export const PackagesSection = () => {
   const packages = [
     {
       name: 'Glow Starter',
-      price: 'CAD $3,500',
-      features: ['Herbal Facial', 'Face Wax', 'Thread Eyebrows & Upper lip', 'Skin Consultation'],
+      price: 'CAD $120',
+      features: ['Herbal Treatment Facial', 'Face, Arm & Leg Waxing', 'Super Spectrum Face Facial'],
       popular: false,
     },
     {
       name: 'Beauty Queen',
-      price: 'CAD $8,500',
-      features: ['Signature Hydra Facial', 'Collagen Skin Treatment', 'Arm & Underarm Wax', 'Fruit Pedicure'],
+      price: 'CAD $390',
+      features: ['Super Signature Hydra Facial', 'Collagen Skin Treatment', 'Face, Arm & Leg Waxing'],
       popular: true,
     },
     {
-      name: 'Bridal Glow Session',
-      price: 'CAD $15,000',
-      features: ['Super Spectrum Facial', 'Full Body Organic Wax', 'Premium Hair Gloss Therapy', '15% Off Future Services'],
+      name: 'Skin Renewal Session',
+      price: 'CAD $610',
+      features: ['Pigmentation Treatment', 'Micro Needle Treatment', 'Chemical Peel Treatment'],
       popular: false,
     },
   ];

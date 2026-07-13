@@ -13,11 +13,9 @@ export const BookAppointment = () => {
     'Pigmentation Treatment',
     'Super Spectrum Face Facial',
     'Micro Needle Treatment',
+    'Face, Arm & Leg Waxing',
     'Chemical Peel Treatment',
-    'Herbal Facial Face & Neck',
-    'Face Wax',
-    'Arm Wax',
-    'Leg Wax',
+    'Herbal Treatment Facial',
   ];
 
   const [formData, setFormData] = useState({
